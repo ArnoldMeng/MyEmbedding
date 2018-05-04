@@ -67,7 +67,7 @@ def visualize(feature,labels,t):
         vdic[labels[i]][0].append(yl[i][0])
         vdic[labels[i]][1].append(yl[i][1])
     for i in vdic:
-        pylab.scatter(vdic[i][0], vdic[i][1], 40, c=colors[int(i)%len(colors)],label=str(i))
+        pylab.scatter(vdic[i][0], vdic[i][1], 80, c=colors[int(i)%len(colors)],label=str(i))
     # pc = (pylab.scatter(Y[:, 0], Y[:, 1], 80, c=labels))
     plt.legend()
     plt.pause(t)
@@ -163,7 +163,7 @@ def train(edges,dim,labels):
     ngb,feature = init(edges,dim)
     # visualize(nodes,labels)
     # print([(nodes['1'][i]-nodes['37'][i]) for i in range(dim)])
-    for iii in range(400):
+    for iii in range(100):
         if iii%20 == 0:
             visualize(feature,labels,1)
         # else:
@@ -186,7 +186,7 @@ def main():
     names = ['brazil-airports',
                 'europe-airports',
                 'usa-airports']
-    name = names[0]
+    name = names[2]
     edges = read_graph('graph/%s.edgelist' % name)
     labels = read_label('graph/labels-%s.txt' % name)
 
